@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Swimming Improvement Tips, Drills, and Tutorials">
+    <title>AquaFit - Improvement</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+        }
+        .intro-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .intro-section h2 {
+            color: #0044cc;
+            font-size: 2rem;
+        }
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-top: 10px;
+            line-height: 1.8;
+        }
+        .form-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .form-container input,
+        .form-container select {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 10px;
+            width: 50%;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .workout-result {
+            margin-top: 30px;
+            text-align: center;
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .drills-result {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AquaFit - Improvement</h1>
+    <p>Enhance your swimming techniques with tutorials, drills, and personalized tips.</p>
+</header>
+
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="Improvement.html">Improvement</a>
+    <a href="Progress.html">Progress</a>
+    <a href="Training.html">Training</a>
+</nav>
+
+<div class="container">
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <h2>Why Improvement Matters</h2>
+        <p>Whether you’re a beginner or an advanced swimmer, improving your technique is essential to achieving better times, preventing injuries, and enjoying your swimming sessions more. At AquaFit, we offer a variety of tools to help you progress.</p>
+        <p>From personalized drills to stroke technique tutorials, you can focus on the areas that matter most to you. Let's work together to perfect your swimming!</p>
+    </section>
+
+    <!-- Set Generator Section -->
+    <section class="form-container">
+        <h2>Generate Your Custom Swim Set</h2>
+        <form id="timeForm">
+            <label for="stroke">Choose Your Stroke:</label><br>
+            <select id="stroke" required>
+                <option value="freestyle">Freestyle</option>
+                <option value="backstroke">Backstroke</option>
+                <option value="breaststroke">Breaststroke</option>
+                <option value="butterfly">Butterfly</option>
+            </select><br><br>
+
+            <label for="distance">Choose Distance:</label><br>
+            <select id="distance" required>
+                <option value="50">50m</option>
+                <option value="100">100m</option>
+                <option value="200">200m</option>
+                <option value="400">400m</option>
+                <option value="800">800m</option>
+            </select><br><br>
+
+            <label for="lapTime" id="lapTimeLabel">Best 50m Lap Time (seconds):</label><br>
+            <input type="number" id="lapTime" placeholder="e.g. 75" required><br><br>
+
+            <label for="strokeRate">Stroke Rate (per minute):</label><br>
+            <input type="number" id="strokeRate" placeholder="e.g. 40" required><br><br>
+
+            <label for="strokeCount">Stroke Count (per length):</label><br>
+            <input type="number" id="strokeCount" placeholder="e.g. 30" required><br><br>
+
+            <label for="goal">Choose Your Goal:</label><br>
+            <select id="goal" required>
+                <option value="endurance">Endurance</option>
+                <option value="speed">Speed</option>
+                <option value="technique">Technique</option>
+            </select><br><br>
+
+            <button type="submit">Generate Custom Set</button>
+        </form>
+    </section>
+
+    <!-- Workout Result Section -->
+    <section class="workout-result" id="workoutResult" style="display: none;">
+        <h3>Your Custom Swim Set:</h3>
+        <p id="warmup"></p>
+        <p id="mainSet"></p>
+        <p id="cooldown"></p>
+    </section>
+
+    <!-- Drills Result Section -->
+    <section class="drills-result" id="drillsResult" style="display: none;">
+        <h3>Recommended Drills:</h3>
+        <p id="drills"></p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 AquaFit. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+    // Update Lap Time Label when Distance Changes
+    document.getElementById('distance').addEventListener('change', function() {
+        const distance = parseInt(this.value);
+        const lapTimeLabel = document.getElementById('lapTimeLabel');
+
+        // Update lap time label based on selected distance
+        if (distance === 50) {
+            lapTimeLabel.textContent = 'Best 50m Lap Time (seconds):';
+        } else if (distance === 100) {
+            lapTimeLabel.textContent = 'Best 100m Lap Time (seconds):';
+        } else if (distance === 200) {
+            lapTimeLabel.textContent = 'Best 200m Lap Time (seconds):';
+        } else if (distance === 400) {
+            lapTimeLabel.textContent = 'Best 400m Lap Time (seconds):';
+        } else if (distance === 800) {
+            lapTimeLabel.textContent = 'Best 800m Lap Time (seconds):';
+        }
+    });
+
+    // Event listener for the form submission
+    document.getElementById('timeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const stroke = document.getElementById('stroke').value;
+        const distance = parseInt(document.getElementById('distance').value);
+        const lapTime = parseFloat(document.getElementById('lapTime').value);
+        const strokeRate = parseFloat(document.getElementById('strokeRate').value);
+        const strokeCount = parseFloat(document.getElementById('strokeCount').value);
+        const goal = document.getElementById('goal').value;
+
+        // Generate workout set based on user input
+        let warmup, mainSet, cooldown, drills;
+
+        // Warm-up and cooldown based on distance
+        if (distance <= 200) {
+            warmup = `Warm-up: 200m easy ${stroke}`;
+            mainSet = `Main Set: 6 x ${distance}m ${stroke} at moderate pace, 45s rest`;
+            cooldown = `Cool-down: 200m easy ${stroke}`;
+        } else {
+            warmup = `Warm-up: 200m easy ${stroke}`;
+            mainSet = `Main Set: 4 x ${distance}m ${stroke} at moderate pace, 60s rest`;
+            cooldown = `Cool-down: 200m easy ${stroke}`;
+        }
+
+        // Drills based on goal
+        if (goal === 'endurance') {
+            drills = `Drills: Focus on consistent pacing, build aerobic capacity. Try "long stroke" drills for ${stroke}.`;
+        } else if (goal === 'speed') {
+            drills = `Drills: Speed-focused, include "sprint intervals" with emphasis on power strokes.`;
+        } else {
+            drills = `Drills: Technique-focused, include "slow motion" drills to improve form for ${stroke}.`;
+        }
+
+        // Display workout and drills
+        document.getElementById('workoutResult').style.display = 'block';
+        document.getElementById('drillsResult').style.display = 'block';
+        document.getElementById('warmup').textContent = warmup;
+        document.getElementById('mainSet').textContent = mainSet;
+        document.getElementById('cooldown').textContent = cooldown;
+        document.getElementById('drills').textContent = drills;
+    });
+</script>
+
+</body>
+</html>

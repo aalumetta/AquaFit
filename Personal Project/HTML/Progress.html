@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your personal swimming times and performance.">
+    <title>AquaFit - Track Times</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to an external stylesheet if desired -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            background-color: #007bff;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container input, .form-container select {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .form-container button:hover {
+            background-color: #0033a0;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+        .result-container h2 {
+            color: #0044cc;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AquaFit - Track Personal Times</h1>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="Improvement.html">Improvement</a>
+        <a href="Progress.html">Progress</a>
+        <a href="Training.html">Training</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Track Your Personal Times</h2>
+    <p>Enter your swimming times and distances for different events to track your progress over time.</p>
+
+    <!-- Form to track times -->
+    <div class="form-container">
+        <form id="timeForm">
+            <label for="event">Choose Event:</label>
+            <select id="event" required>
+                <option value="freestyle">Freestyle</option>
+                <option value="backstroke">Backstroke</option>
+                <option value="breaststroke">Breaststroke</option>
+                <option value="butterfly">Butterfly</option>
+            </select>
+            
+            <label for="time">Enter Time (in minutes and seconds):</label>
+            <input type="text" id="time" placeholder="e.g., 01:30" required>
+            
+            <label for="distance">Enter Distance (in meters):</label>
+            <input type="number" id="distance" placeholder="e.g., 100" required>
+            
+            <button type="submit">Submit Time</button>
+        </form>
+    </div>
+
+    <!-- Result container to show the tracked times -->
+    <div class="result-container">
+        <h2>Tracked Times:</h2>
+        <ul id="timeList">
+            <!-- The entered times will appear here -->
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 AquaFit. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+    // JavaScript to handle the form submission and display the entered times
+
+    document.getElementById('timeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get values from the form
+        const eventName = document.getElementById('event').value;
+        const time = document.getElementById('time').value;
+        const distance = document.getElementById('distance').value;
+
+        // Create a new list item for the time, event, and distance
+        const listItem = document.createElement('li');
+        listItem.textContent = `${eventName.charAt(0).toUpperCase() + eventName.slice(1)} - ${time} for ${distance} meters`;
+
+        // Append the list item to the result container
+        document.getElementById('timeList').appendChild(listItem);
+
+        // Clear the form fields
+        document.getElementById('event').value = 'freestyle';
+        document.getElementById('time').value = '';
+        document.getElementById('distance').value = '';
+    });
+</script>
+
+</body>
+</html>
